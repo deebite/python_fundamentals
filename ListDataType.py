@@ -1,11 +1,23 @@
 # List Data Types in Python
-'''
+"""
 - List items are ordered, changeable, and allow duplicate values.
 - List items are indexed, the first item has index [0], the second item has index [1] etc.
 - The lists are ordered, it means that the items have a defined order, and that order will not change.
 - If you add new items to a list, the new items will be placed at the end of the list.
-- A list can contain different data types exmaple :- myList = list1 = ["abc", 34, True, 40, "male"]
-'''
+- A list can contain different data types example :- myList = list1 = ["abc", 34, True, 40, "male"]
+"""
+"""append()	- Adds an element at the end of the list
+clear()	- Removes all the elements from the list
+copy()	- Returns a copy of the list
+count()	- Returns the number of elements with the specified value
+extend() - Add the elements of a list (or any iterable), to the end of the current list
+index()	- Returns the index of the first element with the specified value
+insert() - Adds an element at the specified position
+pop() - Removes the element at the specified position
+remove() - Removes the item with the specified value
+reverse() - Reverses the order of the list
+sort() - Sorts the list
+"""
 
 myList = ["apple", "banana", "cherry", "apple", "cherry"]
 print(len(myList))  # print the numbers of element of the list
@@ -26,8 +38,8 @@ print(myList1[-1])  # accessing the list element using negative indexing
 When specifying a range, the return value will be a new list with the specified items.'''
 myList2 = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
 print(myList2[2:5])  # The search will start at index 2 (included) and end at index 5 (not included).
-print(myList2[:4])  # This list start print from begining upto 3 index exclude 4th index.
-print(myList2[2:])  # this start printing the elements from 2 index and printing upto last index.
+print(myList2[:4])  # This list start print from beginning up to 3 index exclude 4th index.
+print(myList2[2:])  # this start printing the elements from 2 index and printing up to last index.
 print(myList2[-4:-1])  # negative indexing used
 
 if "apple" in myList2:
@@ -36,7 +48,7 @@ if "apple" in myList2:
 # Change Item Values
 myList3 = ["apple", "banana", "cherry"]
 myList3[1] = "kiwi"
-print(myList3)  # its will replace the values ate intex 1 with kiwi
+print(myList3)  # it will replace the values ate index 1 with kiwi
 
 myList4 = ["apple", "banana", "cherry", "orange", "kiwi", "mango"]
 myList4[1:3] = ["blackcurrant", "watermelon"]
@@ -54,40 +66,82 @@ myList7 = ["apple", "banana", "cherry"]
 myList7.insert(2, "watermelon")
 print(myList7)  # The insert() method inserts an item at the specified index.
 
-#Add Elemnets to List
+# Add Elements to List
 myList8 = ["apple", "banana", "cherry"]
 myList8.append("orange")
-print(myList8) # add an item to the end of the list
+print(myList8)  # add an item to the end of the list
 
 myList_A = ["apple", "banana", "cherry"]
 myList_B = ["mango", "pineapple", "papaya"]
-myList_A.extend(myList_B) #append elements from another list to the current list. We can add any iterable object (tuples, sets, dictionaries etc.)
+myList_A.extend(myList_B)  # append elements from another list to the current list. We can add any iterable object (tuples, sets,ditionaries etc.)
 print(myList_A)
 
-#Remove Elements from List
+# Remove Elements from List
 myList9 = ["apple", "banana", "cherry"]
-myList9.remove("banana") #remove the 'banana' from the list
+myList9.remove("banana")  # remove the 'banana' from the list
 print(myList9)
 '''Note:- If there are more than one item with the specified value, the remove() method removes the first occurance'''
 
 myList10 = ["apple", "banana", "cherry"]
-myList10.pop(1) #removes the specified index
+myList10.pop(1)  # removes the specified index
 print(myList10)
 '''Note:- If you do not specify the index, the pop() method removes the last item.'''
 
 myList11 = ["apple", "banana", "cherry"]
-del myList11[0] #removes the specified index. The del keyword can also delete the list completely.
+del myList11[0]  # removes the specified index. The del keyword can also delete the list completely.
 print(myList11)
 
 myList12 = ["apple", "banana", "cherry"]
-myList12.clear() #empties the list. The list still remains, but it has no content.
+myList12.clear()  # empties the list. The list still remains, but it has no content.
 print(myList12)
 
-#Loop  Lists
+# Loop  Lists
 myList13 = ["apple", "banana", "cherry"]
-for x in myList13: #Print all items in the list, one by one
-  print(x)
+for x in myList13:  # Print all items in the list, one by one
+    print(x)
 
 myList14 = ["apple", "banana", "cherry"]
 for i in range(len(myList14)):
-  print(myList14[i])
+    print(myList14[i])
+[print(x) for x in myList14]
+
+myList15 = ["apple", "banana", "cherry"]
+i = 0
+while i < len(myList15):
+    print(myList15[i])
+    i = i + 1
+
+# List Comprehension
+'''newlist = [expression for item in iterable if condition == True]
+example : - newlist = [x for x in fruits if "a" in x]'''
+
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+newlist = []
+
+for x in fruits:  # instead this we can write it as 'newlist = [x for x in fruits if "a" in x]'
+    if "a" in x:
+        newlist.append(x)
+print(newlist)
+
+# Sort the List
+myList16 = ["orange", "mango", "kiwi", "pineapple", "banana"]
+myList16.sort()  # Sort the list alphabetically
+print(myList16)  # output:['banana', 'kiwi', 'mango', 'orange', 'pineapple']
+"""Note: In case the myList16 = ["banana", "Orange", "Kiwi", "cherry"] 
+- By default the sort() method is case sensitive, resulting in all capital letters being sorted before lower case letters
+output will be: ['Kiwi', 'Orange', 'banana', 'cherry']
+
+- we can use built-in functions as key functions when sorting a list.
+- So if you want a case-insensitive sort function, use str.lower as a key function
+myList16.sort(key = str.lower) 
+output will bw:- ['banana', 'cherry', 'Kiwi', 'Orange']
+"""
+
+myList17 = ["orange", "mango", "kiwi", "pineapple", "banana"]
+myList17.sort(reverse=True)  # sort descending, use the keyword argument reverse = True
+# myList17.reverse() we can use this function to reverse the list.
+print(myList17)  # ['pineapple', 'orange', 'mango', 'kiwi', 'banana']
+
+myList18 = ["apple", "banana", "cherry"]
+mylist = myList18.copy() #  to copy the list in newList. or we can use newList = list(myList18)
+print(myList18)
