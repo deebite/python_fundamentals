@@ -1,2 +1,2 @@
 # python_fundamentals
-This the repository for learning python. Only the fundamental of python.
+This repository is dedicated to learning Python fundamentals, focusing solely on essential concepts. It includes all necessary components for a comprehensive understanding of Python basics.
