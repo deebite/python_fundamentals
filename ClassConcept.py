@@ -8,5 +8,4 @@ c1 = MyCalss()
 c1.myfunction("Amar deep")
 
 f = str(open("DictDataType.py"))
-
 print(bytearray(f,"utf"))
