@@ -9,3 +9,4 @@ c1.myfunction("Amar deep")
 
 f = str(open("DictDataType.py"))
 print(bytearray(f,"utf"))
+# c1.myfunction()
